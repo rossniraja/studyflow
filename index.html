@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Study tracker</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="side-bar">
+        <header>
+          <h1>
+            <span
+              style="
+                background: var(--icon-bg);
+                padding: 6px;
+                border-radius: 8px;
+              "
+              >📚</span
+            >
+            study<span class="highlight">Flow</span>
+          </h1>
+        </header>
+        <div class="overview">
+          <p>overview</p>
+          <ul>
+            <li onclick="showPage('dashboard')">⊞ Dashboard</li>
+            <li onclick="showPage('focus-timer')">◎ Focus Timer</li>
+          </ul>
+          <p>study</p>
+          <ul>
+            <li onclick="showPage('tasks')">✓ Tasks</li>
+            <li onclick="showPage('subjects')">◈ Subjects</li>
+            <li onclick="showPage('analytics')">◐ Analytics</li>
+          </ul>
+        </div>
+        <div class="line"></div>
+        <div class="footer">
+          <p>🔥 Current streak</p>
+          <h2>7</h2>
+          <p>days in a row</p>
+        </div>
+      </div>
+      <!--sidebar-->
+
+      <div id="main-content">
+        <div class="page active" id="dashboard">
+          <header class="dashboard-header">
+            <div>
+              <h2>good evening 👋</h2>
+              <p>You've studied 2h 40m today. Keep it up!</p>
+            </div>
+            <div class="task">
+              <button onclick="showPage('tasks')">+ add task</button>
+            </div>
+          </header>
+
+          <div class="cards">
+            <div class="card1">
+              <p class="caption">today</p>
+              <h3>2:40</h3>
+              <p>hours studied</p>
+            </div>
+            <div class="card2">
+              <p class="caption">this week</p>
+              <h3>18:20</h3>
+              <p>hours total</p>
+            </div>
+            <div class="card3">
+              <p class="caption">task done</p>
+              <h3>5</h3>
+              <p>of 8 today</p>
+            </div>
+            <div class="card4">
+              <p class="caption">focus score</p>
+              <h3>84</h3>
+              <p>out of 100</p>
+            </div>
+          </div>
+          <!--cards-->
+
+          <div class="second">
+            <div class="stats">
+              <div class="stats-header">
+                <h3>weekly study hours</h3>
+                <p>this week</p>
+              </div>
+              <div class="stats-graph">
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 90px"></div>
+                  </div>
+                  <span>mon</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 20px"></div>
+                  </div>
+                  <span>tue</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 70px"></div>
+                  </div>
+                  <span>wed</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 130px"></div>
+                  </div>
+                  <span>thurs</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 100px"></div>
+                  </div>
+                  <span>fri</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 50px"></div>
+                  </div>
+                  <span>sat</span>
+                </div>
+                <div class="bar-fixed">
+                  <div class="days-col">
+                    <div class="bar" style="height: 135px"></div>
+                  </div>
+                  <span>sun</span>
+                </div>
+              </div>
+              <!--stats-graph-->
+
+              <div class="sub">
+                <h3>by subject</h3>
+                <ul>
+                  <li>
+                    <span>mathematics</span>
+                    <div class="right">
+                      <div class="level">
+                        <div class="fill-math" style="width: 25px"></div>
+                      </div>
+                      <p>1hr 10 min</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>physics</span>
+                    <div class="right">
+                      <div class="level">
+                        <div class="fill-phy" style="width: 45px"></div>
+                      </div>
+                      <p>2hr 20 min</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>chemistry</span>
+                    <div class="right">
+                      <div class="level">
+                        <div class="fill-chem" style="width: 80px"></div>
+                      </div>
+                      <p>5hr 40 min</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>history</span>
+                    <div class="right">
+                      <div class="level">
+                        <div class="fill-his" style="width: 95px"></div>
+                      </div>
+                      <p>6hr 25 min</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!--sub-->
+            </div>
+            <!--stats-->
+
+            <div class="focus-goal">
+              <div class="goal">
+                <h3>today's goal</h3>
+                <div class="row">
+                  <p>⏱ Study 4 hours</p>
+                  <h6 style="color: var(--amber)">2.5hr/4hr</h6>
+                </div>
+                <div class="row">
+                  <p>✅ Complete 5 tasks</p>
+                  <h6 style="color: var(--mint1)">3/5</h6>
+                </div>
+                <div class="row">
+                  <p>🎯 3 Pomodoros</p>
+                  <h6 style="color: var(--mint1)">0/3</h6>
+                </div>
+                <div class="row">
+                  <p>📖 Review flashcards</p>
+                  <h6 style="color: var(--text-muted)">0/1</h6>
+                </div>
+              </div>
+              <!--goal-->
+
+              <div class="focus" onclick="showPage('focus-timer')">
+                <h4>◎</h4>
+                <h3>start focus session</h3>
+                <p>pomodoro · 25 minutes</p>
+                <a href="#" onclick="showPage('focus-timer')">Tap to begin →</a>
+              </div>
+            </div>
+            <!--focus-goal-->
+          </div>
+          <!--second-->
+        </div>
+        <!--dashboard-->
+
+        <div class="page" id="focus-timer">
+          <div class="focus-timer-header">
+            <div>
+              <h1>Focus-timer</h1>
+              <p>Stay locked in. You've got this.</p>
+            </div>
+          </div>
+          <div class="focus-body">
+            <div class="timer">
+              <div class="time">
+                <button class="time-btn" id="pomodoro">pomodoro</button>
+                <button class="time-btn" id="short-break">short-break</button>
+                <button class="time-btn" id="long-break">long-break</button>
+              </div>
+            </div>
+            <div class="container">
+            <div class="session-subject">
+              <h4>Session Subject</h4>
+          
+              <select type="text" list="browse" id="browse" name="mathematics">
+                <option value="">Choose Subject</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="history">History</option>
+                <option value="tamil">Tamil</option>
+                <option value="biology">Biology</option>
+              </select>
+              <p>Note(optional)</p>
+              <input type="text" id="notes" name="notes" placeholder="what will you work on?">
+              
+            </div><!--session-subject-->
+            <div class="today-sessions">
+              <h4>todays's sessions</h4>
+              <li class="sub">mathematics</li>
+              <div class="details">
+                <p id="span">25min</p>
+                <p id="span-2">10.00am</p>
+              </div>
+              <li class="sub">physics</li>
+              <div class="details">
+                <p id="span">25min</p>
+                <p id="span-2">11.05am</p>
+              </div>
+              <li class="sub">chemistry</li>
+              <div class="details">
+                <p id="span">25min</p>
+                <p id="span-2">2.30am</p>
+              </div>
+            
+          </div><!--today-session-->
+          </div><!--container-->
+
+          </div><!--focus-body-->
+        </div> <!--focus-timer-->
+        <div class="page" id="tasks">
+  <div class="tasks-header">
+    <div>
+      <h1>Tasks</h1>
+      <p>track your study assignments and deadlines</p>
+    </div>
+    <div class="add">
+      <button>+ add task</button>
+    </div>
+  </div>
+
+  <div class="task-body">
+    <div class="work-done">
+      <h3>active tasks</h3>
+      <!-- tasks appear here -->
+       <ul class="todo-list"></ul>
+      <div class="work-done-body">
+        <input type="text" class="todo" placeholder="add your task">
+        <button class="todo-add">ADD</button>
+      </div>
+    </div>
+
+  
+  <div class="pop-pop">   <!-- ← OUTSIDE task-body -->
+    <p>✓ new task added</p>
+  </div>
+
+  <div class="pop-up">   <!-- ← was deleted, put it back -->
+    <div><h3>add new task</h3></div>
+    <p>task name</p>
+    <input type="text" id="task-holder" placeholder="e.g read chapter 5-calculus">
+    <p>subject</p>
+    <select id="subject-select">
+      <option value="">Choose Subject</option>
+      <option value="mathematics">Mathematics</option>
+      <option value="physics">Physics</option>
+      <option value="chemistry">Chemistry</option>
+      <option value="history">History</option>
+      <option value="tamil">Tamil</option>
+      <option value="biology">Biology</option>
+    </select>
+    <p>priority</p>
+    <select id="priority-select">
+      <option value="medium">medium</option>
+      <option value="low">low</option>
+      <option value="high">high</option>
+    </select>
+    <div>
+      <button class="cancel">cancel</button>
+      <button class="pop-add">add task</button>
+    </div>
+  </div>
+</div>  <!--task-body-->
+
+</div>  <!--tasks-->
+        <div class="page" id="subjects">
+          <div class="subject-header">
+            <div>
+              <h1>subjects</h1>
+              <p>Manage your study subjects and goals</p>
+            </div>
+          </div>
+          <div class="subject-grid">
+          <div class="view" id="view-1">
+            <h4>∑</h4>
+            <h6>Mathematics</h6>
+            <p>22h 30m this month</p>
+          </div>
+          <div class="view" id =view-2>
+            <h4>⚛</h4>
+            <h6>Physics</h6>
+            <p>18h 10m this month</p>
+          </div>
+          <div class="view" id="view-3">
+            <h4>⚗</h4>
+            <h6>Chemistry</h6>
+            <p>14h 00m this month</p>
+          </div>
+          <div class="view" id="view-4">
+            <h4>📜</h4>
+            <h6>History</h6>
+            <p>8h 45m this month</p>
+          </div>
+          <div class="view" id="view-5">
+            <h4>📝</h4>
+            <h6>English</h6>
+            <p>11h 20m this mont</p>
+          </div>
+          <div class="view" id="view-6">
+            <button class="add-sub">+ add subject</button>
+            </div>
+            </div><!--subject-grid-->
+             <div class="toast">
+              <p>📚+add subject</p>
+            </div>
+        </div><!--subjects-->
+
+        <div class="page" id="analytics">
+          <div class="analytics-header">
+            <div>
+              <h1>Analytics</h1>
+              <p>Deep insights into your study patterns</p>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card1">
+              <p class="caption">this month</p>
+              <h3>74h</h3>
+              <p>12% high vs last month</p>
+            </div>
+            <div class="card2">
+              <p class="caption">best day</p>
+              <h3>18:20</h3>
+              <p>hours total</p>
+            </div>
+            <div class="card3">
+              <p class="caption">avg day</p>
+              <h3>2.5h</h3>
+              <p>target:4h</p>
+            </div>
+            <div class="card4">
+              <p class="caption">task done</p>
+              <h3>84</h3>
+              <p>this month</p>
+            </div>
+          </div>
+          <div class="anal-body">
+            <div class="heatmap">
+              <div class="heatmap-header">
+                <h3>study heatmap</h3>
+                  </div>
+                  <div class="heatmap-grid"></div>
+
+            </div><!--heatmap-->
+            <div class="peak">
+              <div class="peak-header">
+              <h3>peak hours study</h3>
+              </div>
+              <div class="peak-body">
+                
+                <ul>
+                  <li>
+                    <span>8am</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-math" style="width: 25px"></div>
+                      </div>
+                      <p>1.2hr</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>10am</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-phy" style="width: 45px"></div>
+                      </div>
+                      <p>2.2hr</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>12pm</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-chem" style="width: 80px"></div>
+                      </div>
+                      <p>5.40hrs</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span>2pm</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-his" style="width: 95px"></div>
+                      </div>
+                      <p>0.5hrs</p>
+                    </div>
+                  </li>
+                  
+                  <li>
+                    <span>4pm</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-phy" style="width: 120px"></div>
+                      </div>
+                      <p>7.40hrs</p>
+                    </div>
+                  </li>
+                  
+                  <li>
+                    <span>6pm</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-math" style="width: 300px"></div>
+                      </div>
+                      <p>1.40hrs</p>
+                    </div>
+                  </li>
+                  
+                  <li>
+                    <span>8pm</span>
+                    <div class="right-peak">
+                      <div class="level-peak">
+                        <div class="fill-his" style="width: 269px"></div>
+                      </div>
+                      <p>0.50hrs</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p id="footer">🏆 Your peak focus window is <span> 10am – 12pm</span></p>
+            </div><!--peak-->
+          </div><!--anal-body-->
+        </div><!--analytics-->
+      </div>
+      <!--main-content-->
+    </div>
+    <!--app-->
+
+    <script src="index.js"></script>
+  </body>
+</html>
