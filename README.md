@@ -68,6 +68,3 @@ studyflow/
  
 
 
-
-
-Could not attach to MCP server Apify
