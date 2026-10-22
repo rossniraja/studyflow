@@ -61,7 +61,7 @@ studyflow/
  
 ## 👨‍💻 Author
  
-**Your Name**
+**ROSSNI R**
 - GitHub: [@rossniraja](https://github.com/rossniraja)
 - LinkedIn: [rossniraja](https://www.linkedin.com/in/rossniraja/)
 ---
