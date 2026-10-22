@@ -38,7 +38,7 @@
         <div class="line"></div>
         <div class="footer">
           <p>🔥 Current streak</p>
-          <h2>7</h2>
+          <h2 id="sidebar-streak">0</h2> <!-- NEW: id added, was hard-coded 7 -->
           <p>days in a row</p>
         </div>
       </div>
@@ -49,7 +49,7 @@
           <header class="dashboard-header">
             <div>
               <h2>good evening 👋</h2>
-              <p>You've studied 2h 40m today. Keep it up!</p>
+              <p id="dash-summary">You've studied 0h 0m today.</p> <!-- NEW -->
             </div>
             <div class="task">
               <button onclick="showPage('tasks')">+ add task</button>
@@ -59,7 +59,7 @@
           <div class="cards">
             <div class="card1">
               <p class="caption">today</p>
-              <h3>2:40</h3>
+              <h3 id="dash-today">0:00</h3> <!-- NEW -->
               <p>hours studied</p>
             </div>
             <div class="card2">
@@ -228,10 +228,75 @@
               </div>
             </div>
             <div class="container">
-            <div class="session-subject">
-              <h4>Session Subject</h4>
-          
-              <select type="text" list="browse" id="browse" name="mathematics">
+              <div class="session-subject">
+                <h4>Session Subject</h4>
+
+                <select id="browse" name="subject">
+                  <option value="">Choose Subject</option>
+                  <option value="mathematics">Mathematics</option>
+                  <option value="physics">Physics</option>
+                  <option value="chemistry">Chemistry</option>
+                  <option value="history">History</option>
+                  <option value="tamil">Tamil</option>
+                  <option value="biology">Biology</option>
+                </select>
+                <p>Note(optional)</p>
+                <input type="text" id="notes" name="notes" placeholder="what will you work on?">
+              </div><!--session-subject-->
+              <div class="today-sessions">
+                <h4>today's sessions</h4>
+                <li class="sub">mathematics</li>
+                <div class="details">
+                  <p id="span">25min</p>
+                  <p id="span-2">10.00am</p>
+                </div>
+                <li class="sub">physics</li>
+                <div class="details">
+                  <p id="span">25min</p>
+                  <p id="span-2">11.05am</p>
+                </div>
+                <li class="sub">chemistry</li>
+                <div class="details">
+                  <p id="span">25min</p>
+                  <p id="span-2">2.30am</p>
+                </div>
+              </div><!--today-session-->
+            </div><!--container-->
+          </div><!--focus-body-->
+        </div> <!--focus-timer-->
+
+        <div class="page" id="tasks">
+          <div class="tasks-header">
+            <div>
+              <h1>Tasks</h1>
+              <p>track your study assignments and deadlines</p>
+            </div>
+            <div class="add">
+              <button>+ add task</button>
+            </div>
+          </div>
+
+          <div class="task-body">
+            <div class="work-done">
+              <h3>active tasks</h3>
+              <!-- tasks appear here -->
+              <ul class="todo-list"></ul>
+              <div class="work-done-body">
+                <input type="text" class="todo" placeholder="add your task">
+                <button class="todo-add">ADD</button>
+              </div>
+            </div>
+
+            <div class="pop-pop">
+              <p>✓ new task added</p>
+            </div>
+
+            <div class="pop-up">
+              <div><h3>add new task</h3></div>
+              <p>task name</p>
+              <input type="text" id="task-holder" placeholder="e.g read chapter 5-calculus">
+              <p>subject</p>
+              <select id="subject-select">
                 <option value="">Choose Subject</option>
                 <option value="mathematics">Mathematics</option>
                 <option value="physics">Physics</option>
@@ -240,88 +305,20 @@
                 <option value="tamil">Tamil</option>
                 <option value="biology">Biology</option>
               </select>
-              <p>Note(optional)</p>
-              <input type="text" id="notes" name="notes" placeholder="what will you work on?">
-              
-            </div><!--session-subject-->
-            <div class="today-sessions">
-              <h4>todays's sessions</h4>
-              <li class="sub">mathematics</li>
-              <div class="details">
-                <p id="span">25min</p>
-                <p id="span-2">10.00am</p>
+              <p>priority</p>
+              <select id="priority-select">
+                <option value="medium">medium</option>
+                <option value="low">low</option>
+                <option value="high">high</option>
+              </select>
+              <div>
+                <button class="cancel">cancel</button>
+                <button class="pop-add">add task</button>
               </div>
-              <li class="sub">physics</li>
-              <div class="details">
-                <p id="span">25min</p>
-                <p id="span-2">11.05am</p>
-              </div>
-              <li class="sub">chemistry</li>
-              <div class="details">
-                <p id="span">25min</p>
-                <p id="span-2">2.30am</p>
-              </div>
-            
-          </div><!--today-session-->
-          </div><!--container-->
+            </div>
+          </div> <!--task-body-->
+        </div> <!--tasks-->
 
-          </div><!--focus-body-->
-        </div> <!--focus-timer-->
-        <div class="page" id="tasks">
-  <div class="tasks-header">
-    <div>
-      <h1>Tasks</h1>
-      <p>track your study assignments and deadlines</p>
-    </div>
-    <div class="add">
-      <button>+ add task</button>
-    </div>
-  </div>
-
-  <div class="task-body">
-    <div class="work-done">
-      <h3>active tasks</h3>
-      <!-- tasks appear here -->
-       <ul class="todo-list"></ul>
-      <div class="work-done-body">
-        <input type="text" class="todo" placeholder="add your task">
-        <button class="todo-add">ADD</button>
-      </div>
-    </div>
-
-  
-  <div class="pop-pop">   <!-- ← OUTSIDE task-body -->
-    <p>✓ new task added</p>
-  </div>
-
-  <div class="pop-up">   <!-- ← was deleted, put it back -->
-    <div><h3>add new task</h3></div>
-    <p>task name</p>
-    <input type="text" id="task-holder" placeholder="e.g read chapter 5-calculus">
-    <p>subject</p>
-    <select id="subject-select">
-      <option value="">Choose Subject</option>
-      <option value="mathematics">Mathematics</option>
-      <option value="physics">Physics</option>
-      <option value="chemistry">Chemistry</option>
-      <option value="history">History</option>
-      <option value="tamil">Tamil</option>
-      <option value="biology">Biology</option>
-    </select>
-    <p>priority</p>
-    <select id="priority-select">
-      <option value="medium">medium</option>
-      <option value="low">low</option>
-      <option value="high">high</option>
-    </select>
-    <div>
-      <button class="cancel">cancel</button>
-      <button class="pop-add">add task</button>
-    </div>
-  </div>
-</div>  <!--task-body-->
-
-</div>  <!--tasks-->
         <div class="page" id="subjects">
           <div class="subject-header">
             <div>
@@ -330,38 +327,38 @@
             </div>
           </div>
           <div class="subject-grid">
-          <div class="view" id="view-1">
-            <h4>∑</h4>
-            <h6>Mathematics</h6>
-            <p>22h 30m this month</p>
-          </div>
-          <div class="view" id =view-2>
-            <h4>⚛</h4>
-            <h6>Physics</h6>
-            <p>18h 10m this month</p>
-          </div>
-          <div class="view" id="view-3">
-            <h4>⚗</h4>
-            <h6>Chemistry</h6>
-            <p>14h 00m this month</p>
-          </div>
-          <div class="view" id="view-4">
-            <h4>📜</h4>
-            <h6>History</h6>
-            <p>8h 45m this month</p>
-          </div>
-          <div class="view" id="view-5">
-            <h4>📝</h4>
-            <h6>English</h6>
-            <p>11h 20m this mont</p>
-          </div>
-          <div class="view" id="view-6">
-            <button class="add-sub">+ add subject</button>
+            <div class="view" id="view-1">
+              <h4>∑</h4>
+              <h6>Mathematics</h6>
+              <p>22h 30m this month</p>
             </div>
-            </div><!--subject-grid-->
-             <div class="toast">
-              <p>📚+add subject</p>
+            <div class="view" id="view-2">
+              <h4>⚛</h4>
+              <h6>Physics</h6>
+              <p>18h 10m this month</p>
             </div>
+            <div class="view" id="view-3">
+              <h4>⚗</h4>
+              <h6>Chemistry</h6>
+              <p>14h 00m this month</p>
+            </div>
+            <div class="view" id="view-4">
+              <h4>📜</h4>
+              <h6>History</h6>
+              <p>8h 45m this month</p>
+            </div>
+            <div class="view" id="view-5">
+              <h4>📝</h4>
+              <h6>English</h6>
+              <p>11h 20m this month</p>
+            </div>
+            <div class="view" id="view-6">
+              <button class="add-sub">+ add subject</button>
+            </div>
+          </div><!--subject-grid-->
+          <div class="toast">
+            <p>📚+add subject</p>
+          </div>
         </div><!--subjects-->
 
         <div class="page" id="analytics">
@@ -398,16 +395,14 @@
             <div class="heatmap">
               <div class="heatmap-header">
                 <h3>study heatmap</h3>
-                  </div>
-                  <div class="heatmap-grid"></div>
-
+              </div>
+              <div class="heatmap-grid"></div>
             </div><!--heatmap-->
             <div class="peak">
               <div class="peak-header">
-              <h3>peak hours study</h3>
+                <h3>peak hours study</h3>
               </div>
               <div class="peak-body">
-                
                 <ul>
                   <li>
                     <span>8am</span>
@@ -445,7 +440,6 @@
                       <p>0.5hrs</p>
                     </div>
                   </li>
-                  
                   <li>
                     <span>4pm</span>
                     <div class="right-peak">
@@ -455,7 +449,6 @@
                       <p>7.40hrs</p>
                     </div>
                   </li>
-                  
                   <li>
                     <span>6pm</span>
                     <div class="right-peak">
@@ -465,7 +458,6 @@
                       <p>1.40hrs</p>
                     </div>
                   </li>
-                  
                   <li>
                     <span>8pm</span>
                     <div class="right-peak">
