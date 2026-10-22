@@ -2,7 +2,7 @@
 
 // ── Config ───────────────────────────────────────────────────
 const POMODORO_MINUTES = 25;
-const DEBUG_SECONDS = null; // set to 5 to test the timer quickly, then back to null
+const DEBUG_SECONDS = 5; // set to 5 to test the timer quickly, then back to null
 
 // ── Local Storage Helpers ────────────────────────────────────
 function loadData(key, fallback) {
