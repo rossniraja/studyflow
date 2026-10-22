@@ -52,8 +52,8 @@ studyflow/
  
 ## 🔮 Upcoming Features
  
-- [ ] localStorage persistence for tasks and sessions
-- [ ] Mobile responsive layout
+- [x] localStorage persistence for tasks and sessions
+- [x] Mobile responsive layout
 - [ ] Sound notification on Pomodoro completion
 - [ ] Editable daily goals
 - [ ] Subject-wise progress tracking with real data
